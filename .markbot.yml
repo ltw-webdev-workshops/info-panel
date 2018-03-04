@@ -1,0 +1,53 @@
+repo: 'info-panel'
+
+inherit:
+  - naming-restrict-live
+  - git-2
+  - html
+  - css
+  - css-order-modules-grid-type-main
+  - gridifier
+  - typografier
+  - modulifier
+  - js
+
+html:
+  - path: 'index.html'
+    has:
+      - 'main > h1 + ul.grid.info-panel-btns > li.unit > a.info-panel-btn > img.img-flex + strong + i.icon.i-32 > img'
+      - 'main > h1 + ul.info-panel-btns + div.info-panels > div.info-panel > h2 + p'
+      - 'script[src*="main.js"]'
+      - 'script[src*="jquery"]'
+
+css:
+  - path: 'css/main.css'
+    has:
+      - ['html', 'font-family', 'Oswald, sans-serif']
+      - ['.info-panel-btn', 'letter-spacing']
+      - ['.info-panel-btn-indicator', 'filter']
+      - ['.info-panel-btn-active::before', 'height']
+      - ['.info-panel-btn-active .info-panel-btn-indicator', 'display']
+      - ['.info-panel', 'z-index']
+
+js:
+  - path: 'js/main.js'
+    noErrors: true
+    search:
+      - "\\.on\\('click', function \\("
+      - "\\.hasClass\\("
+      - "\\.addClass\\("
+      - "\\.removeClass\\("
+      - "\\.attr\\("
+      - "\\.removeAttr\\("
+
+screenshots:
+  - path: 'index.html'
+    label: 'Before'
+    sizes: [1440]
+  - path: 'index.html'
+    label: 'Click'
+    sizes: [1400]
+    before: |
+      const glypt = $('.info-panel-btns li:nth-child(2) a');
+      glypt.dispatchEvent(ev('click'));
+      done();
