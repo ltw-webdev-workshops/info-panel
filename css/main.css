@@ -1,3 +1,36 @@
 html {
   font-family: Oswald, sans-serif;
 }
+
+.info-panel-btn {
+  color: #fff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, .7);
+  letter-spacing: .03em;
+}
+
+.info-panel-btn-indicator {
+  display: none;
+  filter: drop-shadow(0 -2px 3px rgba(0, 0, 0, .9));
+}
+
+.info-panel-btn-active::before {
+  bottom: -10px;
+  content: " ";
+  left: 0;
+  position: absolute;
+  height: 10px;
+  width: 100%;
+
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, .7);
+}
+
+.info-panel-btn-active .info-panel-btn-indicator {
+  display: block;
+}
+
+.info-panel {
+  position: relative;
+  z-index: 1000;
+  background-color: #848173;
+  color: #fff;
+}
